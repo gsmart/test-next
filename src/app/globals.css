@@ -1,0 +1,817 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sunstone Mind Design System - Psychology-inspired wellness colors
+All colors are HSL for consistent theming and accessibility.
+Soft blues (trust, calm), gentle greens (healing, balance), warm neutrals, lavender accents.
+*/
+
+@layer base {
+  :root {
+    /* Core background and surfaces - warm, clean whites */
+    --background: 48 33% 98%;
+    --foreground: 220 15% 25%;
+
+    /* Card surfaces with subtle warmth */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 25%;
+
+    /* Popover and modal surfaces */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 25%;
+
+    /* Primary - Soft, trustworthy blue */
+    --primary: 210 55% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 210 55% 80%;
+    --primary-dark: 210 55% 50%;
+
+    /* Secondary - Gentle, healing green */
+    --secondary: 140 35% 70%;
+    --secondary-foreground: 140 35% 25%;
+    --secondary-light: 140 35% 85%;
+    --secondary-dark: 140 35% 55%;
+
+    /* Accent - Peaceful lavender */
+    --accent: 260 35% 75%;
+    --accent-foreground: 260 35% 25%;
+    --accent-light: 260 35% 90%;
+    
+    /* Warm neutrals for stability */
+    --muted: 45 15% 95%;
+    --muted-foreground: 220 15% 50%;
+    --muted-dark: 45 15% 85%;
+
+    /* Wellness-specific colors */
+    --wellness-calm: 210 45% 88%;        /* Soft blue backgrounds */
+    --wellness-healing: 140 25% 88%;     /* Gentle green backgrounds */
+    --wellness-peace: 260 25% 88%;       /* Lavender backgrounds */
+    --wellness-warmth: 35 25% 88%;       /* Warm neutral backgrounds */
+
+    /* Interactive states */
+    --destructive: 0 65% 70%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs with subtle warmth */
+    --border: 45 25% 90%;
+    --input: 45 25% 95%;
+    --ring: 210 55% 65%;
+
+    /* Generous rounded corners for comfort */
+    --radius: 1rem;
+
+    /* Gradients for depth and warmth */
+    --gradient-primary: linear-gradient(135deg, hsl(210 55% 75%), hsl(210 55% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(140 35% 80%), hsl(140 35% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(260 35% 85%), hsl(260 35% 75%));
+    --gradient-wellness: linear-gradient(135deg, hsl(210 45% 95%), hsl(140 25% 95%));
+    --gradient-calm: linear-gradient(180deg, hsl(210 55% 98%), hsl(210 55% 95%));
+
+    /* Soft shadows for depth */
+    --shadow-soft: 0 4px 20px -4px hsl(210 55% 65% / 0.15);
+    --shadow-medium: 0 8px 30px -6px hsl(210 55% 65% / 0.2);
+    --shadow-large: 0 16px 40px -8px hsl(210 55% 65% / 0.25);
+
+    /* Smooth transitions */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Dark mode with calming, professional tones */
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 210 25% 92%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 210 25% 92%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 25% 92%;
+
+    --primary: 210 55% 70%;
+    --primary-foreground: 220 25% 8%;
+    --primary-light: 210 55% 85%;
+    --primary-dark: 210 55% 55%;
+
+    --secondary: 140 35% 65%;
+    --secondary-foreground: 220 25% 8%;
+    --secondary-light: 140 35% 80%;
+    --secondary-dark: 140 35% 50%;
+
+    --accent: 260 35% 70%;
+    --accent-foreground: 220 25% 8%;
+    --accent-light: 260 35% 85%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 210 15% 70%;
+    --muted-dark: 220 15% 14%;
+
+    --wellness-calm: 210 25% 20%;
+    --wellness-healing: 140 15% 20%;
+    --wellness-peace: 260 15% 20%;
+    --wellness-warmth: 35 15% 20%;
+
+    --destructive: 0 65% 60%;
+    --destructive-foreground: 210 25% 92%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 210 55% 70%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(210 55% 65%), hsl(210 55% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(140 35% 60%), hsl(140 35% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(260 35% 65%), hsl(260 35% 55%));
+    --gradient-wellness: linear-gradient(135deg, hsl(210 25% 15%), hsl(140 15% 15%));
+    --gradient-calm: linear-gradient(180deg, hsl(210 25% 12%), hsl(210 25% 10%));
+
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 30px -6px hsl(0 0% 0% / 0.4);
+    --shadow-large: 0 16px 40px -8px hsl(0 0% 0% / 0.5);
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    line-height: 1.6;
+  }
+
+  /* Custom scrollbar for wellness feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+/* Sunstone Mind Design System - CSS Variables (Lighter Version) */
+/* Add this to your globals.css or app.css file */
+
+@layer base {
+  :root {
+    /* Primary - Soft Teal (Healing & Calm) - Much Lighter */
+    --primary: 176 45% 75%;
+    --primary-foreground: 220 42% 17%;
+    --primary-light: 176 40% 85%;
+    --primary-dark: 176 50% 65%;
+
+    /* Secondary - Soft Blue (Trust & Stability) - Much Lighter */
+    --secondary: 199 50% 70%;
+    --secondary-foreground: 220 42% 17%;
+    --secondary-light: 199 45% 80%;
+    --secondary-dark: 199 55% 60%;
+
+    /* Accent - Soft Sunstone (Warmth & Positivity) - Much Lighter */
+    --accent: 45 85% 80%;
+    --accent-foreground: 220 42% 17%;
+    --accent-light: 45 80% 88%;
+
+    /* Success - Soft Wellness Green */
+    --success: 163 50% 70%;
+    --success-foreground: 220 42% 17%;
+
+    /* Warning - Soft Warm Orange */
+    --warning: 25 70% 78%;
+    --warning-foreground: 220 42% 17%;
+
+    /* Destructive - Soft Pink/Red */
+    --destructive: 356 50% 75%;
+    --destructive-foreground: 220 42% 17%;
+
+    /* Background & Foreground - Very Light */
+    --background: 197 40% 98%;
+    --foreground: 220 30% 25%;
+
+    /* Muted - Very Soft */
+    --muted: 197 30% 96%;
+    --muted-foreground: 206 20% 50%;
+    --muted-dark: 206 25% 88%;
+
+    /* Card - Pure White with subtle hint */
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 25%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 25%;
+
+    /* Border, Input, Ring - Very Soft */
+    --border: 197 20% 92%;
+    --input: 197 20% 95%;
+    --ring: 176 45% 75%;
+
+    /* Wellness Colors - All Lighter */
+    --wellness-calm: 197 35% 95%;
+    --wellness-healing: 176 40% 88%;
+    --wellness-peace: 199 45% 85%;
+    --wellness-warmth: 45 80% 88%;
+
+    /* Sidebar - Lighter */
+    --sidebar-background: 197 30% 98%;
+    --sidebar-foreground: 220 30% 25%;
+    --sidebar-primary: 176 45% 75%;
+    --sidebar-primary-foreground: 220 42% 17%;
+    --sidebar-accent: 197 25% 94%;
+    --sidebar-accent-foreground: 220 30% 25%;
+    --sidebar-border: 197 20% 92%;
+    --sidebar-ring: 176 45% 75%;
+
+    /* Border Radius */
+    --radius: 1rem;
+
+    /* Shadows - Much Softer */
+    --shadow-soft: 0 1px 3px rgba(76, 201, 192, 0.05), 0 1px 2px rgba(27, 38, 59, 0.03);
+    --shadow-medium: 0 2px 8px rgba(76, 201, 192, 0.06), 0 1px 4px rgba(27, 38, 59, 0.04);
+    --shadow-large: 0 4px 16px rgba(76, 201, 192, 0.08), 0 2px 8px rgba(27, 38, 59, 0.05);
+    --shadow-glow: 0 0 16px rgba(76, 201, 192, 0.12), 0 0 8px rgba(76, 201, 192, 0.08);
+
+    /* Gradients - Much Softer */
+    --gradient-primary: linear-gradient(135deg, #A7E4E0 0%, #7DBEDC 100%);
+    --gradient-secondary: linear-gradient(135deg, #7DBEDC 0%, #A7D8E8 100%);
+    --gradient-accent: linear-gradient(135deg, #FFEAB3 0%, #FFD89B 100%);
+    --gradient-wellness: linear-gradient(135deg, #A7E4E0 0%, #7DBEDC 50%, #7EDFC7 100%);
+    --gradient-calm: linear-gradient(135deg, #E8F4F8 0%, #D4EEF7 50%, #C8F2E8 100%);
+
+    /* Transitions */
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 400ms cubic-bezier(0.4, 0, 0.6, 1);
+  }
+
+  .dark {
+    /* Dark mode - Deeper, more calming tones */
+    --primary: 176 35% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 176 35% 65%;
+    --primary-dark: 176 40% 45%;
+
+    --secondary: 199 50% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 199 45% 55%;
+    --secondary-dark: 199 55% 35%;
+
+    --accent: 45 70% 65%;
+    --accent-foreground: 220 42% 17%;
+    --accent-light: 45 65% 75%;
+
+    --background: 220 20% 14%;
+    --foreground: 197 20% 85%;
+
+    --muted: 220 18% 20%;
+    --muted-foreground: 197 15% 60%;
+    --muted-dark: 220 20% 16%;
+
+    --card: 220 18% 18%;
+    --card-foreground: 197 20% 85%;
+
+    --popover: 220 18% 18%;
+    --popover-foreground: 197 20% 85%;
+
+    --border: 220 16% 25%;
+    --input: 220 16% 22%;
+    --ring: 176 35% 55%;
+
+    --wellness-calm: 220 18% 20%;
+    --wellness-healing: 176 30% 45%;
+    --wellness-peace: 199 40% 40%;
+    --wellness-warmth: 45 60% 55%;
+
+    --sidebar-background: 220 18% 16%;
+    --sidebar-foreground: 197 20% 85%;
+    --sidebar-primary: 176 35% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 16% 22%;
+    --sidebar-accent-foreground: 197 20% 85%;
+    --sidebar-border: 220 16% 25%;
+    --sidebar-ring: 176 35% 55%;
+  }
+}
+
+/* Utility classes for wellness theme */
+@layer utilities {
+  .wellness-card {
+    @apply bg-card rounded-2xl shadow-wellness-soft transition-all duration-300 border border-border/50;
+  }
+
+  .wellness-card:hover {
+    @apply shadow-wellness-medium transform -translate-y-0.5;
+  }
+
+  .wellness-button-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium 
+           shadow-wellness-soft hover:shadow-wellness-medium transition-all duration-300 
+           hover:-translate-y-0.5 hover:bg-primary-dark active:translate-y-0;
+  }
+
+  .wellness-button-secondary {
+    @apply bg-card text-primary border border-primary/40 px-6 py-3 rounded-xl font-medium
+           hover:bg-primary/10 hover:border-primary/60 transition-all duration-300;
+  }
+
+  .wellness-input {
+    @apply bg-input border border-border rounded-lg px-4 py-2.5 text-foreground
+           focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200
+           placeholder:text-muted-foreground;
+  }
+
+  .wellness-gradient-text {
+    @apply bg-gradient-primary bg-clip-text text-transparent;
+  }
+
+  .wellness-glow {
+    @apply shadow-wellness-glow;
+  }
+
+  /* Soft colored backgrounds */
+  .wellness-bg-teal {
+    @apply bg-gradient-to-br from-primary-light/30 to-primary/20;
+  }
+
+  .wellness-bg-blue {
+    @apply bg-gradient-to-br from-secondary-light/30 to-secondary/20;
+  }
+
+  .wellness-bg-amber {
+    @apply bg-gradient-to-br from-accent-light/40 to-accent/25;
+  }
+
+  .wellness-bg-green {
+    @apply bg-gradient-to-br from-success/25 to-success/15;
+  }
+}
+
+/* Smooth scrolling and reduced motion support */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Custom scrollbar styling */
+@layer utilities {
+  .wellness-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .wellness-scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted/50 rounded-full;
+  }
+
+  .wellness-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 rounded-full hover:bg-primary/30;
+  }
+}
+
+/* Additional soft color utilities */
+@layer utilities {
+  .text-soft-teal {
+    color: hsl(176, 45%, 60%);
+  }
+
+  .text-soft-blue {
+    color: hsl(199, 50%, 65%);
+  }
+
+  .text-soft-amber {
+    color: hsl(45, 75%, 65%);
+  }
+
+  .bg-soft-overlay {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+  }
+}
+
+@layer components {
+  /* Wellness-specific component styles */
+  .wellness-card {
+    @apply bg-card rounded-[--radius] border border-border/50 shadow-[var(--shadow-soft)] backdrop-blur-sm transition-[var(--transition)];
+  }
+
+  .wellness-card:hover {
+    @apply shadow-[var(--shadow-medium)] border-border;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-wellness {
+    background: var(--gradient-wellness);
+  }
+
+  .gradient-calm {
+    background: var(--gradient-calm);
+  }
+
+  /* Room-specific background styles */
+  .room-dashboard {
+    @apply bg-[hsl(var(--wellness-calm))] dark:bg-[hsl(var(--wellness-calm))];
+  }
+
+  .room-journal {
+    @apply bg-[hsl(var(--wellness-healing))] dark:bg-[hsl(var(--wellness-healing))];
+  }
+
+  .room-therapy {
+    @apply bg-[hsl(var(--wellness-peace))] dark:bg-[hsl(var(--wellness-peace))];
+  }
+
+  .room-meditation {
+    @apply bg-[hsl(var(--wellness-warmth))] dark:bg-[hsl(var(--wellness-warmth))];
+  }
+
+  /* Smooth animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+  /* Typography utilities */
+  .text-wellness-heading {
+    @apply text-2xl font-semibold tracking-tight text-foreground;
+  }
+
+  .text-wellness-subheading {
+    @apply text-lg font-medium text-muted-foreground;
+  }
+
+  .text-wellness-body {
+    @apply text-base text-foreground/90 leading-relaxed;
+  }
+
+  .text-wellness-caption {
+    @apply text-sm text-muted-foreground;
+  }
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-20px) translateX(10px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-30px) translateX(-15px); }
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0px); opacity: 0.3; }
+  50% { transform: translateY(-100px); opacity: 0.8; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes draw {
+  0% { stroke-dasharray: 0, 1000; }
+  100% { stroke-dasharray: 1000, 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+.animate-float-particle {
+  animation: float-particle 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 3s ease-in-out infinite alternate;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+@keyframes brain-draw {
+  from { stroke-dasharray: 0, 1000; }
+  to { stroke-dasharray: 1000, 0; }
+}
+
+@keyframes brain-breathe {
+  0%, 100% { opacity: 0.4; transform: scale(1); filter: blur(0px); }
+  50% { opacity: 0.8; transform: scale(1.05); filter: blur(1px); }
+}
+
+.animate-draw-once {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: brain-draw 5s ease-in-out forwards;
+}
+
+.animate-breathe {
+  animation: brain-breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.5; }
+}
+
+@keyframes breathe-slow {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.15); opacity: 0.6; }
+}
+
+@keyframes leaf-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes leaf-fall-slow {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.35; }
+  100% { transform: translateY(100vh) rotate(-360deg); opacity: 0; }
+}
+
+@keyframes bubble-float {
+  0% { transform: translateY(0) scale(1); opacity: 0.2; }
+  50% { opacity: 0.4; }
+  100% { transform: translateY(-100vh) scale(1.3); opacity: 0; }
+}
+
+@keyframes mandala-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes wave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes zen-ripple {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { opacity: 0.3; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes wind-flow {
+  0% { transform: translateX(0); opacity: 0.3; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: scale(1.05); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes text-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.animate-breathe-slow {
+  animation: breathe-slow 6s ease-in-out infinite;
+}
+
+.animate-leaf-fall {
+  animation: leaf-fall 15s linear infinite;
+}
+
+.animate-leaf-fall-slow {
+  animation: leaf-fall-slow 20s linear infinite;
+}
+
+.animate-bubble-float {
+  animation: bubble-float 12s ease-in-out infinite;
+}
+
+.animate-mandala-rotate {
+  animation: mandala-rotate 60s linear infinite;
+}
+
+.animate-wave {
+  animation: wave 8s linear infinite;
+}
+
+.animate-zen-ripple {
+  animation: zen-ripple 3s ease-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.animate-wind-flow {
+  animation: wind-flow 20s linear infinite;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.animate-gentle-bounce {
+  animation: gentle-bounce 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 0.6s ease-in-out;
+}
+
+.animate-text-shimmer {
+  background-size: 200% auto;
+  animation: text-shimmer 3s linear infinite;
+}
+
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+.scale-98 {
+  transform: scale(0.98);
+}
+
+.scale-95 {
+  transform: scale(0.95);
+}
+
+.scale-90 {
+  transform: scale(0.90);
+}

@@ -1,0 +1,176 @@
+{
+  "roles": {
+    "patient": {
+      "name": "Patient",
+      "description": "Standard user with access to wellness activities and personal tracking",
+      "permissions": {
+        "dashboard": {
+          "view": true,
+          "edit": false
+        },
+        "activities": {
+          "view": true,
+          "create": false,
+          "edit": false,
+          "delete": false
+        },
+        "journal": {
+          "view": true,
+          "create": true,
+          "edit": true,
+          "delete": true
+        },
+        "reports": {
+          "view": true,
+          "export": true
+        },
+        "profile": {
+          "view": true,
+          "edit": true
+        },
+        "settings": {
+          "view": false,
+          "edit": false
+        },
+        "notifications": {
+          "view": false,
+          "create": false,
+          "edit": false,
+          "delete": false
+        },
+        "breathing": {
+          "view": false,
+          "create": false
+        },
+        "admin": {
+          "view": false,
+          "access": false
+        }
+      },
+      "sidebarItems": [
+        "dashboard",
+        "activities",
+        "journal",
+        "reports",
+        "profile"
+      ]
+    },
+    "doctor": {
+      "name": "Doctor",
+      "description": "Healthcare provider with access to patient management and advanced features",
+      "permissions": {
+        "dashboard": {
+          "view": true,
+          "edit": true
+        },
+        "activities": {
+          "view": true,
+          "create": true,
+          "edit": true,
+          "delete": false
+        },
+        "journal": {
+          "view": true,
+          "create": true,
+          "edit": true,
+          "delete": true
+        },
+        "reports": {
+          "view": true,
+          "export": true,
+          "viewAll": true
+        },
+        "profile": {
+          "view": true,
+          "edit": true
+        },
+        "settings": {
+          "view": true,
+          "edit": true
+        },
+        "notifications": {
+          "view": true,
+          "create": true,
+          "edit": true,
+          "delete": true
+        },
+        "breathing": {
+          "view": false,
+          "create": false
+        },
+        "admin": {
+          "view": false,
+          "access": false
+        }
+      },
+      "sidebarItems": [
+        "dashboard",
+        "activities",
+        "journal",
+        "reports",
+        "notifications",
+        "profile",
+        "settings"
+      ]
+    },
+    "admin": {
+      "name": "Admin",
+      "description": "System administrator with full access to all features",
+      "permissions": {
+        "dashboard": {
+          "view": true,
+          "edit": true
+        },
+        "activities": {
+          "view": true,
+          "create": true,
+          "edit": true,
+          "delete": true
+        },
+        "journal": {
+          "view": true,
+          "create": true,
+          "edit": true,
+          "delete": true
+        },
+        "reports": {
+          "view": true,
+          "export": true,
+          "viewAll": true
+        },
+        "profile": {
+          "view": true,
+          "edit": true
+        },
+        "settings": {
+          "view": true,
+          "edit": true
+        },
+        "notifications": {
+          "view": true,
+          "create": true,
+          "edit": true,
+          "delete": true
+        },
+        "breathing": {
+          "view": false,
+          "create": false
+        },
+        "admin": {
+          "view": true,
+          "access": true
+        }
+      },
+      "sidebarItems": [
+        "dashboard",
+        "activities",
+        "journal",
+        "reports",
+        "notifications",
+        "profile",
+        "settings"
+      ]
+    }
+  }
+}
+
